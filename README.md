@@ -23,7 +23,7 @@ there
         type = "item_standard",
 
 
-    }
+    },
 ```
 
 ## 2.Credits
