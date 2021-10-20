@@ -27,5 +27,5 @@ there
 ```
 
 ## 2.Credits
-- https://github.com/ktos93
-- https://github.com/Ap3x99 --oranges version
+- https://github.com/ktos93 --original creator
+- - https://github.com/Ap3x99/redemrp_apple --apple version
