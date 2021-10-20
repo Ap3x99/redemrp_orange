@@ -28,4 +28,4 @@ there
 
 ## 2.Credits
 - https://github.com/ktos93 --original creator
-- - https://github.com/Ap3x99/redemrp_apple --apple version
+- https://github.com/Ap3x99/redemrp_apple --apple version
