@@ -65,22 +65,6 @@ Citizen.CreateThread(function()
                 oldBush[tostring(bush)] = true
                 goCollect()
             end
-           --[[ 
-            if PromptHasHoldModeCompleted(EatPrompt) then
-                eat = true
-                active = true
-				oldBush[tostring(bush)] = true
-                goEat()
-                amount = amount + 1
-                if amount == 4  then
-                    TriggerEvent("redem_roleplay:Tip", "Do not eat blueberries too often, this can result in poisoning!", 4000)
-                end
-                if amount > 4 then
-                    Wait(2300)
-                    startPoisone()
-                end
-            end
-            ]]
         else
 
         end
@@ -100,7 +84,6 @@ function goEat()
     Wait(2300)
     TaskPlayAnim(playerPed, "mech_pickup@plant@berries", "exit_eat", 8.0, -0.5, -1, 0, 0, true, 0, false, 0, false)
     Wait(2500)
-    -- TriggerServerEvent('wwrp_status:eatorange') -- HERE IS PLACE TO YOU STATUS/BASICNEEDS TRIGGER
 
     eat = false
     active = false
@@ -136,15 +119,6 @@ AddEventHandler('redemrp_orange:EatOrange', function()
     Wait(2500)
     TriggerServerEvent('wwrp_status:eatorange')
     amount = amount + 1
-    --[[
-    if amount == 4  then
-        TriggerEvent("redem_roleplay:Tip", "Do not eat blueberries too often, this can result in poisoning!", 4000)
-    end
-    if amount > 4 then
-        Wait(2300)
-        startPoisone()
-    end
-    ]]
     ClearPedTasks(playerPed)
 end)
 
@@ -158,30 +132,6 @@ Citizen.CreateThread(function()
     end
 end)
 
-
---[[
-function startPoisone()
-    local dict = "amb_misc@world_human_vomit_kneel@male_a@idle_c"
-    local anim = "idle_g"
-    RequestAnimDict(dict)
-    while not HasAnimDictLoaded(dict) do
-        Wait(100)
-    end
-    local test = 10
-    Citizen.CreateThread(function()
-        while test > 0 do
-            if not IsEntityPlayingAnim( PlayerPedId() ,dict, anim, 31) then
-                TaskPlayAnim( PlayerPedId(), dict, anim, 8.0, -8.0, -1, 31, 0, true, 0, false, 0, false)
-            end
-            Wait(2000)
-            local hp = GetEntityHealth(PlayerPedId())
-            SetEntityHealth(PlayerPedId(),hp-5)
-            test = test - 1
-        end
-        ClearPedTasksImmediately(PlayerPedId())
-    end)
-end
-]]
 
 function GetClosestBush()
     local playerped = PlayerPedId()
