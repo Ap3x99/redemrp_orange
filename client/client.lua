@@ -141,7 +141,7 @@ function GetClosestBush()
         for index = 0, size - 1 do
             local entity = GetIndexedItemInItemset(index, itemSet)
             local model_hash = GetEntityModel(entity)
-            if (model_hash ==  -952223380 --[[or model_hash ==  85102137 or model_hash ==  -1707502213]]) and not oldBush[tostring(entity)] then
+            if (model_hash ==  -952223380) and not oldBush[tostring(entity)] then
               if IsItemsetValid(itemSet) then
                   DestroyItemset(itemSet)
               end
